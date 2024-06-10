@@ -1,0 +1,24 @@
+<div id="reviews-container">
+    <h3>Reviews</h3>
+    <div id="reviews-list"></div>
+    <h4>Submit a Review</h4>
+    <form id="review-form">
+        <label for="reviewer">Name:</label>
+        <input type="text" id="reviewer" name="reviewer" required><br><br>
+        <label for="review">Review:</label><br>
+        <textarea id="review" name="review" rows="4" required></textarea><br><br>
+        <button type="submit">Submit Review</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('review-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const reviewer = document.getElementById('reviewer').value;
+        const review = document.getElementById('review').value;
+        const reviewItem = document.createElement('div');
+        reviewItem.innerHTML = `<strong>${reviewer}</strong><p>${review}</p>`;
+        document.getElementById('reviews-list').appendChild(reviewItem);
+        document.getElementById('review-form').reset();
+    });
+</script>
